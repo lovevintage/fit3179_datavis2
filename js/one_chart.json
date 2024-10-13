@@ -34,7 +34,7 @@
         {
             "mark": "geoshape",
             "data": {
-                "url": "../data/ne_50m_admin_0_countries.geojson",
+                "url": "data/ne_50m_admin_0_countries.geojson",
                 "format": {
                     "type": "json",
                     "property": "features"
@@ -48,7 +48,7 @@
         },
         {
             "data": {
-                "url": "../data/LPD2022_public_aus.csv"
+                "url": "data/LPD2022_public_aus.csv"
             },
             "transform": [
                 {
