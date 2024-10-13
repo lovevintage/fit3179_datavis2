@@ -6,7 +6,7 @@
         "text": "Species by Category in Australia"
     },
     "data": {
-        "url": "../data/LPD2022_public_aus.csv"
+        "url": "data/LPD2022_public_aus.csv"
     },
     "transform": [
         {
