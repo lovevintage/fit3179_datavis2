@@ -6,7 +6,7 @@
         "text": "Species Count by System and Class"
     },
     "data": {
-        "url": "../data/LPD2022_public_aus.csv"
+        "url": "data/LPD2022_public_aus.csv"
     },
     "transform": [
         {
