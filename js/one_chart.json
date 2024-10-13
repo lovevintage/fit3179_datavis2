@@ -1,0 +1,132 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 300,
+    "title": {
+        "text": "Biodiversity in Australia"
+    },
+    "params": [
+        {
+            "name": "Category_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    null,
+                    "Amphibians",
+                    "Birds",
+                    "Fishes",
+                    "Mammals",
+                    "Reptiles"
+                ],
+                "labels": [
+                    "Show All",
+                    "Amphibians",
+                    "Birds",
+                    "Fishes",
+                    "Mammals",
+                    "Reptiles"
+                ],
+                "name": "Category Selection"
+            }
+        }
+    ],
+    "layer": [
+        {
+            "mark": "geoshape",
+            "data": {
+                "url": "../data/ne_50m_admin_0_countries.geojson",
+                "format": {
+                    "type": "json",
+                    "property": "features"
+                }
+            },
+            "encoding": {
+                "color": {
+                    "value": "lightgray"
+                }
+            }
+        },
+        {
+            "data": {
+                "url": "../data/LPD2022_public_aus.csv"
+            },
+            "transform": [
+                {
+                    "filter": "datum.Country == 'Australia'"
+                },
+                {
+                    "calculate": "datum.Class == 'Amphibia' ? 'Amphibians' : datum.Class == 'Aves' ? 'Birds' : datum.Class == 'Mammalia' ? 'Mammals' : datum.Class == 'Reptilia' ? 'Reptiles' : (datum.Class == 'Actinopteri' || datum.Class == 'Dipneusti' || datum.Class == 'Elasmobranchii') ? 'Fishes' : null",
+                    "as": "Category"
+                },
+                {
+                    "filter": "Category_selection == null || datum.Category == Category_selection"
+                }
+            ],
+            "mark": "circle",
+            "encoding": {
+                "longitude": {
+                    "field": "Longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "Latitude",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "value": 30
+                },
+                "color": {
+                    "field": "Category",
+                    "type": "nominal",
+                    "title": "Category",
+                    "scale": {
+                        "domain": [
+                            "Amphibians",
+                            "Birds",
+                            "Fishes",
+                            "Mammals",
+                            "Reptiles"
+                        ],
+                        "range": [
+                            "#00008B",  
+                            "#87CEEB",  
+                            "#FF7600",  
+                            "#A0522D",  
+                            "#006400"   
+                        ]
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "Common_name",
+                        "type": "nominal",
+                        "title": "Species"
+                    },
+                    {
+                        "field": "Location",
+                        "type": "nominal",
+                        "title": "Location"
+                    },
+                    {
+                        "field": "Category",
+                        "type": "nominal",
+                        "title": "Category"
+                    },
+                    {
+                        "field": "System",
+                        "type": "nominal",
+                        "title": "System"
+                    }
+                ]
+            }
+        }
+    ],
+    "projection": {
+        "type": "mercator",
+        "center": [
+            135,
+            -30
+        ],
+        "scale": 350
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 400,
+    "title": {
+        "text": "Species Count by System and Class"
+    },
+    "data": {
+        "url": "../data/LPD2022_public_aus.csv"
+    },
+    "transform": [
+        {
+            "filter": "datum.Country == 'Australia'"
+        },
+        {
+            "calculate": "datum.Class === 'Amphibia' ? 'Amphibians' : (datum.Class === 'Actinopteri' || datum.Class === 'Dipneusti' || datum.Class === 'Elasmobranchii' ? 'Fishes' : (datum.Class === 'Aves' ? 'Birds' : (datum.Class === 'Mammalia' ? 'Mammals' : (datum.Class === 'Reptilia' ? 'Reptiles' : 'Other'))))",
+            "as": "Class"
+        },
+        {
+            "groupby": ["System", "Class"],
+            "aggregate": [
+                {
+                    "op": "count",
+                    "field": "Common_name",
+                    "as": "Species Count"
+                }
+            ]
+        }
+    ],
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "System",
+            "type": "nominal",
+            "title": "System"
+        },
+        "y": {
+            "field": "Species Count",
+            "type": "quantitative",
+            "title": "Number of Species"
+        },
+        "color": {
+            "field": "Class",
+            "type": "nominal",
+            "title": "Class",
+        "scale": {
+                "domain": [
+                    "Amphibians",
+                    "Birds",
+                    "Fishes",
+                    "Mammals",
+                    "Reptiles"
+                ],
+                "range": [
+                    "#00008B",  
+                    "#87CEEB",  
+                    "#FF7600",  
+                    "#A0522D",  
+                    "#006400" 
+                ]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "Class",
+                "type": "nominal",
+                "title": "Class"
+            },
+            {
+                "field": "Species Count",
+                "type": "quantitative",
+                "title": "Number of Species"
+            }
+        ]
+    }
+}

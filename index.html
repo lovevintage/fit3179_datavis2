@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <script src="js/biodiversity.js"></script>
+
+    <title>Australian Species Tracked</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="main-title">Biodiversity in Australia</h1>
+        <p class="description">Australia is home to a vast array of wildlife, and understanding its biodiversity is crucial for conservation efforts. This data visualisation provides an in-depth look at the number of vertebrate species that are being tracked by the Living Planet Database across Australia's regions, categorized by their respective classes such as mammals, birds, and reptiles. By examining the distribution of species, we can gain insights into the ecological diversity of different areas, offering a clear understanding of how Australia's wildlife is spread across the continent and the significance of these habitats for conservation.</p>
+    </header>
+
+    <div class="container" style="margin-top: 20px;">
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="one_chart">
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="two_chart">
+                </div>
+            </div>
+        </div>
+        
+        <div class="pure-g" style="margin-top: 20px;">
+            <div class="pure-u-1">
+                <p class="one-description">
+                    We will first take a look at the overall distribution of the species. There are a <b> total of 9,401 species </b> that are being tracked in Australia. It is quite evident through the second chart that birds are the most prominent class throughout the region, looking to be <b>more than 75% of the species,</b> whilst amphibians are the minority. There are <b>7000 more birds that are being tracked than amphibians.</b>
+                    Birds are primarily concentrated along the coastal edges of the country, with a particularly dense population in the state of Victoria. Queensland is home to the majority of fish species, while mammals are most abundant in Victoria. Reptiles, on the other hand, are predominantly found in the Northern Territory.
+                </p>
+            </div>
+        </div>
+
+        <div class="pure-g" style="margin-top: 20px;">
+            <div class="pure-u-1-2">
+                <div id="three_chart">
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <p class="two-description">
+                    Examining the various biomes or systems inhabited by these species reveals that <b>fish</b> are the predominant inhabitants of <b>freshwater</b> systems, while <b>birds</b> significantly outnumber all other classes in <b>marine</b> environments. Additionally, <b>mammals</b> are the dominant species found in <b>terrestrial</b> biomes.
+                    <br> <br>
+                    While it is expected that fishes would be the most tracked class in freshwater systems and mammals in terrestrial systems, it is quite interesting to observe that <b>birds are the most tracked class within the marine system.</b> This is most likely due to the inclusion of coastlines within the marine classification.
+                    <br> <br>
+                    It is also noteworthy that <b>birds and reptiles</b> are the <b>only two classes found across all three systems.</b> While birds show a strong preference for marine environments, reptiles appear to be more evenly distributed among the three systems. This distribution may be influenced by the relatively small sample size of reptiles, which comprises only 105 species.
+                </p>
+            </div>
+        </div>
+
+        <div class="pure-g" style="margin-top: 20px;">
+            <div class="pure-u-1">
+                <p class="conclusion">
+                    Through data visualisation, the diverse wildlife of Australia was illustrated, revealing key patterns in the distribution of vertebrate species tracked by the Living Planet Database. It indicates that fish are primarily found in freshwater systems, while birds dominate marine environments and mammals are most prevalent in terrestrial biomes. Notably, both birds and reptiles are present across all three systems, highlighting their adaptability, though the smaller number of reptile species is worth noting. Understanding these distribution patterns is essential for effective conservation efforts, as it underscores the importance of safeguarding diverse habitats to maintain ecological balance. As we continue to monitor these species, we gain valuable insights into the health of Australia's ecosystems, which can guide future conservation strategies aimed at preserving this unique biodiversity for generations to come.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

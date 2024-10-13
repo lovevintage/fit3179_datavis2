@@ -1,0 +1,48 @@
+body {
+    font-family: arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-title {
+    font-size: 72px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.description {
+    font-size: 24px;
+    text-align: center;
+    padding: 0 200px;
+}
+
+#one_chart {
+    width: 100%;
+    height: auto;
+}
+
+.one-description {
+    font-size: 18px;
+    padding: 10px;
+    line-height: 1.25;
+}
+
+.two-description {
+    font-size: 18px;
+    padding: 10px;
+    line-height: 1.25;
+}
+
+.conclusion {
+    font-size: 22px;
+    padding: 10px;
+    line-height: 1.25;
+    text-align: center;
+}

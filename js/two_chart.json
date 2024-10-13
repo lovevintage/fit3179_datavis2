@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300,
+    "height": 300,
+    "title": {
+        "text": "Species by Category in Australia"
+    },
+    "data": {
+        "url": "../data/LPD2022_public_aus.csv"
+    },
+    "transform": [
+        {
+            "filter": "datum.Country == 'Australia'"
+        },
+        {
+            "calculate": "datum.Class == 'Amphibia' ? 'Amphibians' : datum.Class == 'Aves' ? 'Birds' : datum.Class == 'Mammalia' ? 'Mammals' : datum.Class == 'Reptilia' ? 'Reptiles' : (datum.Class == 'Actinopteri' || datum.Class == 'Dipneusti' || datum.Class == 'Elasmobranchii') ? 'Fishes' : null",
+            "as": "Category"
+        }
+    ],
+    "mark": {
+        "type": "arc",
+        "innerRadius": 50
+    },
+    "encoding": {
+        "theta": {
+            "aggregate": "count",
+            "field": "Common_name",
+            "type": "quantitative",
+            "title": "Species Count"
+        },
+        "color": {
+            "field": "Category",
+            "type": "nominal",
+            "title": "Category",
+            "scale": {
+                "domain": [
+                    "Amphibians",
+                    "Birds",
+                    "Fishes",
+                    "Mammals",
+                    "Reptiles"
+                ],
+                "range": [
+                    "#00008B",  
+                    "#87CEEB",  
+                    "#FF7600",  
+                    "#A0522D",  
+                    "#006400"   
+                ]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "Category",
+                "type": "nominal",
+                "title": "Category"
+            },
+            {
+                "aggregate": "count",
+                "field": "Common_name",
+                "type": "quantitative",
+                "title": "Species Count"
+            }
+        ]
+    }
+}
